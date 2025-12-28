@@ -6,7 +6,7 @@ from llm.prompt_builder import build_prompt
 from llm.response_validator import validate_model_response
 from file_io.file_reader import read_document_as_text
 from file_io.document_detector import auto_detect_resume
-from file_io.document_editor import duplicate_document, apply_replacements
+from file_io.document_editor import apply_replacements
 from file_io.pdf_generator import generate_pdf
 
 # Configure logging
@@ -22,13 +22,11 @@ def main():
     try:
         logger.info("Starting program...")
         
-        # Detect resume file automatically
         data_dir = BASE_DIR / "data"
         logger.info(f"Auto-detecting resume file in {data_dir}...")
         resume_path = auto_detect_resume(data_dir)
         logger.info(f"Found resume file: {resume_path.name}")
         
-        # Read job offer
         job_offer_path = BASE_DIR / "data" / "job.txt"
         if not job_offer_path.exists():
             raise FileNotFoundError(f"Job offer file not found: {job_offer_path}")
@@ -49,20 +47,29 @@ def main():
         company_name = validated_json.get("company_name", "unknown")
         logger.info(f"Company name extracted: {company_name}")
         
+        logger.info(f"Preparing directory for company: {company_name}...")
+        from file_io.file_manager import prepare_company_directory, save_cover_letter, copy_resume_to_company_dir
+        
+        output_dir = BASE_DIR / "outputs"
+        company_dir = prepare_company_directory(output_dir, company_name)
+        logger.info(f"Company directory ready: {company_dir}")
+
+        logger.info("Saving cover letter...")
+        cover_letter_text = validated_json.get("cover_letter", "")
+        cover_letter_path = save_cover_letter(company_dir, cover_letter_text)
+        logger.info(f"Cover letter saved to: {cover_letter_path}")
+        
         logger.info("Gemini found the following replacements:")
         print(json.dumps(validated_json, indent=2, ensure_ascii=False))
         
-        # Duplicate document with new name
-        logger.info(f"Duplicating resume file with company name: {company_name}...")
-        duplicated_path = duplicate_document(resume_path, company_name)
-        logger.info(f"Created duplicate: {duplicated_path.name}")
+        logger.info(f"Copying resume to company directory...")
+        duplicated_path = copy_resume_to_company_dir(resume_path, company_dir, company_name)
+        logger.info(f"Created working copy: {duplicated_path.name}")
         
-        # Apply replacements to the duplicated document
         logger.info("Applying replacements to document...")
         apply_replacements(duplicated_path, validated_json)
         logger.info("Replacements applied successfully")
         
-        # Generate PDF
         logger.info("Generating PDF from edited document...")
         try:
             pdf_path = generate_pdf(duplicated_path)
@@ -72,10 +79,11 @@ def main():
             logger.info("Document editing completed, but PDF generation was skipped")
             pdf_path = None
         
-        # Summary
         logger.info("=" * 60)
         logger.info("Process completed successfully!")
-        logger.info(f"Edited document: {duplicated_path.name}")
+        logger.info(f"Output Directory: {company_dir}")
+        logger.info(f"Cover Letter: {cover_letter_path.name}")
+        logger.info(f"Edited CV: {duplicated_path.name}")
         if pdf_path:
             logger.info(f"PDF file: {pdf_path.name}")
         logger.info("=" * 60)

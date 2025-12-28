@@ -14,6 +14,12 @@ COMPANY NAME EXTRACTION:
 - If you cannot find a clear company name, return "unknown" (lowercase, exactly as written).
 - Do NOT invent or guess company names.
 
+COVER LETTER GENERATION:
+- Write a professional, engaging cover letter addressed to the company (or "Hiring Manager" if unknown).
+- The tone should be professional, confident, and tailored to the job description.
+- Highlight key skills and experiences from the resume that match the job requirements.
+- Keep it concise (approx. 200-300 words).
+
 CRITICAL RULES (must be followed strictly):
 
 GENERAL:
@@ -55,6 +61,7 @@ FORBIDDEN EXAMPLES:
 
 {
   "company_name": string,
+  "cover_letter": string,
   "role_replacements": [
     {
       "from": string,
@@ -73,6 +80,7 @@ FORBIDDEN EXAMPLES:
 
 Rules:
 - The "company_name" field is REQUIRED and MUST be the first field in the JSON object.
+- The "cover_letter" field is REQUIRED and MUST contain the generated cover letter text.
 - If the company name cannot be found in the job offer, set "company_name" to "unknown" (lowercase).
 - Include ONLY clearly valid replacements.
 - If no valid replacement exists in a category, return an empty array.

@@ -26,6 +26,12 @@ def validate_model_response(response_text: str) -> Dict[str, Any]:
     if not isinstance(parsed.get("company_name"), str):
         raise RuntimeError("'company_name' must be a string")
     
+    if "cover_letter" not in parsed:
+        raise RuntimeError("Response is missing required key: 'cover_letter'")
+        
+    if not isinstance(parsed.get("cover_letter"), str):
+        raise RuntimeError("'cover_letter' must be a string")
+    
     if "role_replacements" not in parsed or "skill_replacements" not in parsed:
         raise RuntimeError("Response is missing required keys: 'role_replacements' or 'skill_replacements'")
 
