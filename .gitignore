@@ -34,3 +34,8 @@ wheels/
 .DS_Store
 Thumbs.db
 
+# Project specific
+data/*.docx
+data/*.odt
+outputs/
+
