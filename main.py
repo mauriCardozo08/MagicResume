@@ -7,7 +7,7 @@ from llm.response_validator import validate_model_response
 from file_io.file_reader import read_document_as_text
 from file_io.document_detector import auto_detect_resume
 from file_io.document_editor import apply_replacements
-from file_io.pdf_generator import generate_pdf
+
 
 # Configure logging
 logging.basicConfig(
@@ -70,22 +70,14 @@ def main():
         apply_replacements(duplicated_path, validated_json)
         logger.info("Replacements applied successfully")
         
-        logger.info("Generating PDF from edited document...")
-        try:
-            pdf_path = generate_pdf(duplicated_path)
-            logger.info(f"PDF generated successfully: {pdf_path.name}")
-        except RuntimeError as pdf_error:
-            logger.warning(f"PDF generation failed: {pdf_error}")
-            logger.info("Document editing completed, but PDF generation was skipped")
-            pdf_path = None
+
         
         logger.info("=" * 60)
         logger.info("Process completed successfully!")
         logger.info(f"Output Directory: {company_dir}")
         logger.info(f"Cover Letter: {cover_letter_path.name}")
         logger.info(f"Edited CV: {duplicated_path.name}")
-        if pdf_path:
-            logger.info(f"PDF file: {pdf_path.name}")
+
         logger.info("=" * 60)
         
     except FileNotFoundError as e:

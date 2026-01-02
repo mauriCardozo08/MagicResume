@@ -1,0 +1,75 @@
+🟢 Are you in Brazil or Argentina? Join us as we actively recruit in these locations, offering a comfortable remote environment. Submit your CV in English, and we'll get back to you!
+
+We invite an experienced Intermediate Software Engineer to join our team. You'll work across backend and frontend systems, modernizing legacy platforms and developing new full-stack features using .NET, C#, and JavaScript/TypeScript. Collaborating closely with cross-functional teams and stakeholders, you'll help deliver high-quality software for a leading U.S. payment processing solution provider serving over 275,000 businesses.
+
+🟩 What's in it for you:
+
+Gain hands-on FinTech experience, collaborating with a leading U.S. payments company
+Modernize internal systems and build full-stack features using .NET, C#, and JavaScript/TypeScript frameworks
+Enhance your cloud expertise with GCP, AWS, or Azure, supporting future migration initiatives
+
+✅ Is that you?
+
+4+ years of commercial experience with C# and .NET (.NET / .NET Core)
+JavaScript and TypeScript experience with at least one modern framework (Angular, React.js, or Vue.js)
+Strong knowledge of SOLID principles and clean code practices
+Experience building REST APIs and distributed/microservice-based systems
+Hands-on experience with authentication and authorization 
+Solid experience with SQL Server and relational databases
+Proficiency with unit testing (NUnit, xUnit)
+Hands-on cloud experience with GCP, AWS, or Azure
+Experience working in Agile environments (Scrum, Kanban)
+High level of autonomy, ownership, and accountability
+Strong communication and collaboration skills
+Upper-Intermediate English level
+
+Desirable:
+
+Experience with legacy systems (classic ASP, older .NET)
+Knowledge of NoSQL databases
+Experience with Docker and CI/CD pipelines
+Integration and automation testing experience
+FinTech/payments domain experience
+
+🧩Key responsibilities and your contribution
+
+In this role, you'll contribute to the evolution of our client's internal servicing applications, developing new features and supporting both backend and frontend systems.
+
+Design, develop, and maintain full-stack features using .NET, C#, and JavaScript/TypeScript
+Modernize and integrate legacy systems with new platforms
+Ensure software quality through unit, integration, and automated testing
+Collaborate with cross-functional teams and stakeholders to understand requirements and design effective solutions
+Take ownership of tasks, proactively resolve technical issues, and maintain platform stability and performance
+Work with cloud environments and support future cloud migration initiatives
+Participate in Agile ceremonies, including sprint planning, refinements, and daily stand-ups
+Contribute to technical documentation and share knowledge with team members
+
+🎾 What's working at Dev.Pro like? 
+
+Dev.Pro is a global company that's been building great software since 2011. Our team values fairness, high standards, openness, and inclusivity for everyone — no matter your background
+
+🌐 We are 99.9% remote — you can work from anywhere in the world
+
+🌴 Get 30 paid days off per year to use however you like — vacations, holidays, or personal time
+
+✔️ 5 paid sick days, up to 60 days of medical leave, and up to 6 paid days off per year for major family events like weddings, funerals, or the birth of a child
+
+⚡️ Partially covered health insurance after the probation, plus a wellness bonus for gym memberships, sports nutrition, and similar needs after 6 months
+
+💵 We pay in U.S. dollars and cover all approved overtime
+
+📓 Join English lessons and Dev.Pro University programs, and take part in fun online activities and team-building events
+
+Our next steps:
+
+✅ Submit a CV in English — ✅ Intro call with a Recruiter — ✅ Internal interview — ✅ Client interview — ✅ Offer
+
+Interested? Find out more:
+
+📋How we work
+
+💻 LinkedIn Page
+
+📈 Our website
+
+💻IG Page
