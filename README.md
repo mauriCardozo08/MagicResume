@@ -4,7 +4,8 @@ MagicResume is an automated tool that adapts your Curriculum Vitae (CV) to speci
 
 No exaggeration, no false claims — only smart alignment with ATS and recruiter expectations.
 
-⚠️ Important: AI-generated output may include errors or misinterpretations. Always review and verify the generated CV and cover letter before submitting them.
+⚠️ **Important**: AI-generated output may include errors or misinterpretations. Always review and verify the generated CV and cover letter before submitting them.
+Also the DOCX generation process might encounter errors or formatting issues if the original document has a complex layout or is not well-structured. It is highly recommended to use a simple, clean layout for the input resume.
 
 ## Project Architecture
 
@@ -35,7 +36,12 @@ The project is structured in a modular way to separate business logic, AI intera
 2.  **Create a virtual environment** (recommended):
     ```bash
     python -m venv venv
-    .\venv\Scripts\activate  # On Windows
+    
+    # Windows
+    .\venv\Scripts\activate
+    
+    # Linux/macOS
+    source venv/bin/activate
     ```
 
 3.  **Install dependencies**:
@@ -44,12 +50,10 @@ The project is structured in a modular way to separate business logic, AI intera
     ```
 
 4.  **Configure environment variables**:
-    *   Copy the example file `.env.example` and rename it to `.env`.
-    *   Edit the `.env` file and add your `GEMINI_API_KEY`.
-
-    ```ini
-    GEMINI_API_KEY=your_api_key_here
-    ```
+    *   You need to set the `GEMINI_API_KEY` environment variable at the operating system level so it can be read by `os.getenv`.
+    *   **Windows (PowerShell)**: `$env:GEMINI_API_KEY="your_api_key_here"`
+    *   **Linux/macOS**: `export GEMINI_API_KEY="your_api_key_here"`
+    *   *Note*: You may need to restart your terminal or IDE for the changes to take effect.
 
 ## File Configuration (Data)
 
