@@ -2,6 +2,8 @@
 
 MagicResume is an automated tool that adapts your Curriculum Vitae (CV) to specific job offers using Artificial Intelligence (Google Gemini). The system analyzes your CV and the job offer, generates a personalized cover letter, and optimizes the CV content to highlight the most relevant skills, finally generating a new DOCX document.
 
+No exaggeration, no false claims — only smart alignment with ATS and recruiter expectations.
+
 ## Project Architecture
 
 The project is structured in a modular way to separate business logic, AI interaction, and file handling:
