@@ -4,6 +4,8 @@ MagicResume is an automated tool that adapts your Curriculum Vitae (CV) to speci
 
 No exaggeration, no false claims — only smart alignment with ATS and recruiter expectations.
 
+⚠️ Important: AI-generated output may include errors or misinterpretations. Always review and verify the generated CV and cover letter before submitting them.
+
 ## Project Architecture
 
 The project is structured in a modular way to separate business logic, AI interaction, and file handling:
