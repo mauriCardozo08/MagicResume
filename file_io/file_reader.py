@@ -5,25 +5,59 @@ def read_docx(file_path: str) -> str:
     from docx import Document
 
     document = Document(file_path)
-    paragraphs = [p.text for p in document.paragraphs]
-    return "\n".join(paragraphs)
+    content = []
+    
+    for p in document.paragraphs:
+        if p.text.strip():
+            content.append(p.text)
+
+    for table in document.tables:
+        for row in table.rows:
+            row_text = []
+            for cell in row.cells:
+                if cell.text.strip():
+                    row_text.append(cell.text.strip())
+            if row_text:
+                content.append(" | ".join(row_text))
+
+    return "\n".join(content)
 
 
 def read_odt(file_path: str) -> str:
     from odf.opendocument import load
     from odf.text import P
+    from odf.table import Table, TableRow, TableCell
 
     doc = load(file_path)
-    paragraphs = []
+    content = []
 
     for element in doc.getElementsByType(P):
         text_parts = []
         for node in element.childNodes:
             if node.nodeType == node.TEXT_NODE:
                 text_parts.append(node.data)
-        paragraphs.append("".join(text_parts))
+        paragraph_text = "".join(text_parts).strip()
+        if paragraph_text:
+            content.append(paragraph_text)
 
-    return "\n".join(paragraphs)
+    for table in doc.getElementsByType(Table):
+        for row in table.getElementsByType(TableRow):
+            row_text = []
+            for cell in row.getElementsByType(TableCell):
+                cell_text_parts = []
+                for p_node in cell.getElementsByType(P):
+                    for node in p_node.childNodes:
+                        if node.nodeType == node.TEXT_NODE:
+                           cell_text_parts.append(node.data)
+                
+                cell_text = "".join(cell_text_parts).strip()
+                if cell_text:
+                    row_text.append(cell_text)
+            
+            if row_text:
+                content.append(" | ".join(row_text))
+
+    return "\n".join(content)
 
 
 def read_txt(file_path: str) -> str:
